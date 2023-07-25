@@ -5,19 +5,13 @@ import {
   Input,
   AbsoluteCenter,
   Button,
-  UnorderedList,
-  Tag,
-  TagLabel,
-  Checkbox,
-  CheckboxGroup,
-  Stack,
-  TagCloseButton,
-  OrderedList,
-  ListItem,
   Center,
+  VStack,
 } from '@chakra-ui/react'
+// import Link from 'next/link';
 import axios from 'axios'
 import RecipeCard from '@/components/recipe/RecipeCard'
+import UserActionsButton from '@/components/layout/UserActionsButton'
 
 export default function Home() {
   const [url, setUrl] = React.useState<string>()
@@ -36,9 +30,10 @@ export default function Home() {
 
   return (
     <main>
-      <a href="/api/auth/login">Login</a> | <a href="/api/auth/logout">Logout</a>
+      <UserActionsButton />
       <Box position="relative" h="100vh">
         <Center h="100px">
+          <VStack>
           <Input
             width="30rem"
             placeholder="Enter a Recipe URL"
@@ -48,6 +43,7 @@ export default function Home() {
           <Button colorScheme="blue" onClick={handleParseURLData}>
             Get Recipe
           </Button>
+          </VStack>
         </Center>
         <br />
         {!!results ? (
@@ -57,7 +53,7 @@ export default function Home() {
             axis="both"
             width="50rem"
             maxHeight="50rem"
-            overflowY='hidden'
+            overflowY="hidden"
           >
             <RecipeCard recipe={results} />
           </AbsoluteCenter>
