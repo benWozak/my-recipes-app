@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
-import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
+import { useUser, withPageAuthRequired, WithPageAuthRequiredProps } from '@auth0/nextjs-auth0/client'
 import { Center, VStack } from '@chakra-ui/react'
 
-export default withPageAuthRequired(function Profile({ user }) {
+export default withPageAuthRequired<WithPageAuthRequiredProps>(function Profile({ user }) {
   const { error, isLoading } = useUser()
 
   if (isLoading) return <div>Loading...</div>
