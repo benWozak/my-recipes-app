@@ -36,6 +36,7 @@ export default function Home() {
 
   return (
     <main>
+      <a href="/api/auth/login">Login</a> | <a href="/api/auth/logout">Logout</a>
       <Box position="relative" h="100vh">
         <Center h="100px">
           <Input
