@@ -14,7 +14,7 @@ import { HiMiniUserCircle } from 'react-icons/hi2'
 export default function UserActionsButton() {
     const { user } = useUser()
     return (
-        <Box position='absolute' top='2' right='2'>
+        <Box position='absolute' top='2' right='2' zIndex='10'>
         <Menu>
           <MenuButton
             as={IconButton}
